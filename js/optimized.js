@@ -15,15 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 处理标语动画
     animateSlogan();
-
-    // 处理滚动动画
-    handleScrollAnimations();
-
-    // 处理图片懒加载
-    handleLazyLoading();
-
-    // 移动端菜单处理
-    handleMobileMenu();
 });
 
 /**
@@ -474,64 +465,4 @@ function addBackToTopButton() {
             behavior: 'smooth'
         });
     });
-}
-
-// 处理滚动动画
-function handleScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
-}
-
-// 处理图片懒加载
-function handleLazyLoading() {
-    const lazyImages = document.querySelectorAll('img.lazyload');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazyload');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    lazyImages.forEach(img => {
-        imageObserver.observe(img);
-    });
-}
-
-// 移动端菜单处理
-function handleMobileMenu() {
-    const nav = document.querySelector('nav');
-    const menuButton = document.createElement('button');
-    menuButton.className = 'menu-toggle';
-    menuButton.innerHTML = '菜单';
-    
-    if (window.innerWidth <= 768) {
-        nav.prepend(menuButton);
-        
-        menuButton.addEventListener('click', () => {
-            nav.classList.toggle('menu-open');
-        });
-    }
-}
-
-// 处理窗口调整
-window.addEventListener('resize', () => {
-    handleMobileMenu();
-}); 
+} 
