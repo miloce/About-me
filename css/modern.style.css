@@ -483,204 +483,47 @@ img.lazyload.loaded {
 
 /* 响应式优化 */
 @media screen and (max-width: 768px) {
-  /* 基础布局调整 */
-  body, html {
-    min-width: auto;
-    font-size: 14px;
-  }
-  
-  .container {
-    width: 100%;
-    padding: 0 15px;
-  }
-  
-  /* 导航栏调整 */
-  nav {
-    position: fixed !important;
-    left: 0 !important;
-    top: 0 !important;
-    bottom: auto !important;
-    width: 100% !important;
-    transform: none !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    background-color: rgba(18, 18, 18, 0.95);
-    z-index: 2000;
-    border-radius: 0;
-  }
-  
-  /* 主内容区域调整 */
-  .main {
-    padding-top: 50px; /* 为固定导航留出空间 */
-  }
-  
-  /* 标题文字调整 */
   .ch h2.chtitle {
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 1.7rem;
   }
   
-  .ch h2.chtitle:after {
-    margin: var(--spacing-md) auto 0;
-  }
-  
-  /* 问候区域调整 */
   .hello h1 {
-    font-size: 2rem;
-    text-align: center;
+    font-size: 2.2rem;
   }
   
   .hello h2 {
-    font-size: 1.1rem;
-    text-align: center;
+    font-size: 1.2rem;
   }
   
-  /* 个人介绍区域调整 */
-  .about .introduct p {
-    font-size: 1rem;
-    text-align: center;
-    width: 100%;
-  }
-  
-  /* 技能区域调整 */
   .about ul.skill {
     grid-template-columns: 1fr;
-    padding: 0;
   }
   
-  .about ul.skill li {
-    margin-bottom: 15px;
-  }
-  
-  /* 链接区域调整 */
   .find .links .col-3 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: 1fr;
   }
   
-  .find .links .item {
-    height: 100px;
-    margin-bottom: 10px;
-  }
-  
-  /* 好友列表调整 */
   .gate .links .item {
     flex-direction: column;
     text-align: center;
-    padding: 15px;
+    padding: var(--spacing-lg);
   }
   
   .gate .links .item .avatar {
     margin-right: 0;
-    margin-bottom: 10px;
-    width: 70px;
-    height: 70px;
+    margin-bottom: var(--spacing-md);
+    width: 80px;
+    height: 80px;
   }
   
-  /* 多层嵌套的clear修复 */
-  .gate .links .clear {
-    display: block !important;
-    width: 100% !important;
-  }
-  
-  .gate .links .clear a {
-    display: block;
-    margin-bottom: 15px;
-  }
-  
-  .gate .links .clear .clear {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
-  /* 页脚区域调整 */
-  .footer h3 {
-    font-size: 1.2rem;
-  }
-  
-  .footer p {
-    font-size: 0.9rem;
-  }
-  
-  /* 修复动画元素在移动端的显示 */
-  .animate-on-scroll {
-    transform: translateY(20px);
-  }
-  
-  /* 控制按钮位置调整 */
-  .audio-control {
-    bottom: 15px;
-    right: 15px;
-  }
-  
-  .back-to-top {
-    bottom: 65px;
-    right: 15px;
-  }
-}
-
-/* 超小屏幕设备适配 */
-@media screen and (max-width: 480px) {
-  /* 进一步缩小文字 */
-  body, html {
-    font-size: 13px;
-  }
-  
-  /* 单列显示链接卡片 */
-  .find .links .col-3 {
-    grid-template-columns: 1fr;
-  }
-  
-  /* 减小头像大小 */
-  .about .introduct img.avatar {
-    width: 100px;
-    height: 100px;
-  }
-  
-  /* 修复章节内边距 */
-  .ch {
-    padding: 20px 0;
-  }
-  
-  /* 减小标题大小 */
-  .hello h1 {
-    font-size: 1.7rem;
-  }
-  
-  .ch h2.chtitle {
-    font-size: 1.3rem;
-  }
-  
-  /* 修复嵌套结构 */
-  .gate .clear {
-    clear: both;
-    float: none;
-  }
-  
-  /* 调整技能栏宽度 */
-  .about ul.skill li {
-    width: 100%;
-  }
-}
-
-/* 修复 iOS Safari 中的特殊问题 */
-@supports (-webkit-touch-callout: none) {
-  /* 修复 iOS Safari 中的固定元素问题 */
-  nav, .scroll-progress {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-  
-  /* 修复iOS中的溢出滚动问题 */
-  body {
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  /* 修复iOS中表单元素的样式 */
-  button, a {
-    -webkit-tap-highlight-color: transparent;
+  nav {
+    position: relative;
+    transform: none;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
   }
 }
 
@@ -843,4 +686,147 @@ a:not(.item):not([class*="link"]):hover:after {
   #slogan.typed::after {
     color: var(--primary-color);
   }
+}
+
+/* 基础响应式布局 */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 导航栏适配 */
+    nav {
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    /* 标题适配 */
+    .hello h1 {
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    .hello h2 {
+        font-size: 18px;
+    }
+
+    /* 技能条适配 */
+    .skill li {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* 友链卡片适配 */
+    .links .col-3 a {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .links .item {
+        margin: 10px 0;
+    }
+
+    /* 头像和介绍适配 */
+    .introduct {
+        text-align: center;
+    }
+
+    .introduct .avatar {
+        float: none;
+        margin: 0 auto 20px;
+    }
+
+    /* 页脚适配 */
+    .footer h3 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+}
+
+/* 中等屏幕适配 */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
+    .links .col-3 a {
+        width: 45%;
+    }
+}
+
+/* 优化间距和排版 */
+.ch {
+    padding: 40px 0;
+}
+
+.chtitle {
+    margin-bottom: 30px;
+}
+
+.links .item {
+    transition: transform 0.3s ease;
+}
+
+.links .item:hover {
+    transform: translateY(-5px);
+}
+
+/* 优化加载动画 */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 移动端菜单样式 */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+
+    nav {
+        position: relative;
+    }
+
+    nav a:not(.menu-toggle) {
+        display: none;
+    }
+
+    nav.menu-open a:not(.menu-toggle) {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav.menu-open {
+        background: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
 } 
