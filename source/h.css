@@ -234,33 +234,33 @@ body {
 }
 
 .hello .circle {
-    float: left;
-    margin-right: 10opx;
-    letter-spacing: 0;
+    display: inline-flex;
+    margin-right: 12px;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
 }
 
 .hello .circle span {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50%;
+    margin: 0 2px !important;
     display: inline-block;
-    width: 8px;
-    height: 8px;
-    background-color: #fff;
-    border-radius: 100%;
-    margin-right: 5px;
-    animation: circle-loading 1s ease-in-out infinite;
+    animation: circle-pulse 1.5s infinite ease-in-out;
 }
 
-.hello .circle span:first-child {
-    background-color: #ff493f;
+.hello .circle span:nth-child(1) {
+    background: #5D8BF4 !important;
     animation-delay: 0s;
 }
 
 .hello .circle span:nth-child(2) {
-    background-color: #f7c900;
+    background: #90B8F8 !important;
     animation-delay: 0.2s;
 }
 
 .hello .circle span:nth-child(3) {
-    background-color: #00ff37;
+    background: #AB4ADB !important;
     animation-delay: 0.4s;
 }
 
@@ -823,17 +823,13 @@ ul.skill li .progress div {
 }
 
 /* 添加圆点循环动画效果 */
-@keyframes circle-loading {
-    0% {
-        transform: scale(1);
-        opacity: 1;
+@keyframes circle-pulse {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.6;
     }
     50% {
-        transform: scale(0.3);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(1);
+        transform: scale(1.2);
         opacity: 1;
     }
 }
@@ -927,3 +923,72 @@ ul.skill li .progress div {
 .footer .container { text-align: center; }
 /* 页脚链接蓝色 */
 .footer .container p.c a { color: #007bff; }
+
+/* 头像漂浮动画，兼容About-me现代风格 */
+.about .introduct img.avatar {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* slogan 渐变色 */
+#slogan {
+  background: linear-gradient(90deg, #5D8BF4, #AB4ADB 60%, #00ffea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-size: 2.5rem !important;
+}
+
+.hello h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  letter-spacing: 0.02em;
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+}
+
+.about-paragraphs p {
+  font-size: 1.15rem;
+  color: #e6e6e6;
+  line-height: 2;
+  margin: 0 0 1.2em 0;
+  text-align: center;
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+
+.about-paragraphs p:first-child {
+  font-weight: bold;
+  font-size: 1.22rem;
+  color: #8faaff;
+  margin-bottom: 1.5em;
+  letter-spacing: 0.04em;
+}
+
+.about-paragraphs p sup {
+  font-size: 0.95em;
+  color: #AB4ADB;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+.about-paragraphs p:last-child {
+  color: #5D8BF4;
+  font-weight: 600;
+  font-size: 1.18rem;
+  margin-top: 1.5em;
+  letter-spacing: 0.04em;
+}
