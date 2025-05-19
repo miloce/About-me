@@ -838,12 +838,15 @@ ul.skill li .progress div {
 /* 添加滚动动画效果 */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease-out;
+    transform: translateY(40px) scale(0.98);
+    transition:
+        opacity 0.8s cubic-bezier(.19,1,.22,1),
+        transform 0.8s cubic-bezier(.19,1,.22,1);
+    will-change: opacity, transform;
 }
 .animate-on-scroll.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 /* 聊天框加载动画 */
 .chatbox {
@@ -947,7 +950,7 @@ ul.skill li .progress div {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
   font-size: 2.5rem !important;
 }
 
@@ -991,4 +994,17 @@ ul.skill li .progress div {
   font-size: 1.18rem;
   margin-top: 1.5em;
   letter-spacing: 0.04em;
+}
+
+/* Slogan 顶部动画，立即出现 */
+.slogan-animate {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.98);
+    animation: sloganFadeIn 1.2s cubic-bezier(.19,1,.22,1) forwards;
+}
+@keyframes sloganFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }

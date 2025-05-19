@@ -24,7 +24,7 @@
         <div class="ch intro">
             <div class="container">
                 <div class="hello">
-                    <h1 id="slogan">正在努力思考中...</h1>
+                    <h1 id="slogan" class="slogan-animate">正在努力思考中...</h1>
                     <h2>
                         <div class="circle">
                             <span></span> <span></span> <span></span>
@@ -248,6 +248,11 @@
             // 滚动动画
             const animateElements = document.querySelectorAll('.animate-on-scroll');
             
+            // 为每个元素设置不同的延迟
+            animateElements.forEach(function(element, idx) {
+                element.style.transitionDelay = (idx * 0.12) + 's';
+            });
+            
             function checkScroll() {
                 const windowHeight = window.innerHeight;
                 const windowTopPosition = window.scrollY;
@@ -276,6 +281,14 @@
             
             // 添加滚动进度条
             createScrollProgressBar();
+            
+            // Slogan 动画触发
+            var slogan = document.getElementById('slogan');
+            if (slogan) {
+                slogan.classList.remove('slogan-animate');
+                void slogan.offsetWidth; // 强制重绘
+                slogan.classList.add('slogan-animate');
+            }
         });
         
         // 创建滚动进度条
