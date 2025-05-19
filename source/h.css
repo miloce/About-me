@@ -834,7 +834,6 @@ ul.skill li .progress div {
     }
 }
 
-/* 从 index.html head 迁移的样式 */
 /* 添加滚动动画效果 */
 .animate-on-scroll {
     opacity: 0;

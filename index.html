@@ -15,21 +15,9 @@
      <!-- 加载图标字体 -->
     <link rel="stylesheet" type="text/css" href="source/font/nekotora.css">
     <!-- animate-on-scroll 动画CSS -->
-    <style>
-    .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(40px) scale(0.98);
-        transition: opacity 0.8s cubic-bezier(.19,1,.22,1), transform 0.8s cubic-bezier(.19,1,.22,1);
-        will-change: opacity, transform;
-    }
-    .animate-on-scroll.visible {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-    </style>
 </head>
 
-<body>
+<body oncontextmenu="alert('抓到你啦~坏孩子才会抄作业哦~'); return false" noop="if (window.event != null &amp;&amp; window.event.button == 2) alert ('Thanks...');">
     <div class="background">
         <canvas id="startrack"></canvas>
         <div class="cover"></div>
@@ -38,7 +26,7 @@
         <div class="ch intro">
             <div class="container">
                 <div class="hello">
-                    <h1 id="slogan" class="slogan-animate">正在努力思考中...</h1>
+                    <h1 id="slogan">想和我一起启程吗？</h1>
                     <h2>
                         <div class="circle">
                             <span></span> <span></span> <span></span>
@@ -75,99 +63,99 @@
             </div>
         </div>
 
-        <div class="ch clear">
-            <div class="container">
-                <div class="readme animate-on-scroll">
-                    <p>
-                        如果对我感兴趣，可以<a href="javascript:rollOnce()">点击这里</a>Roll一个关于我的标签，<br> 
-                        在下面的社交媒体关注我，也欢迎直接发邮件找我聊聊。
-                    </p>
-                    <div class="roll-tag"></div>
-                    <p>希望能与你在比特之海的繁星之下相见！</p>
-                </div>
+            <div class="ch clear">
+                <div class="container">
+                    <div class="readme animate-on-scroll">
+                        <p>
+                            如果对我感兴趣，可以<a href="javascript:rollOnce()">点击这里</a>Roll一个关于我的标签，<br> 
+                            在下面的社交媒体关注我，也欢迎直接发邮件找我聊聊。
+                        </p>
+                        <div class="roll-tag"></div>
+                        <p>希望能与你在比特之海的繁星之下相见！</p>
+                    </div>
 
-                <div class="find-me animate-on-scroll">
-                    <a class="item" href="http://wpa.qq.com/msgrd?v=3&uin=2855595515&site=qq&menu=yes" target="_blank">
-                        <i class="neko-icon icon-qq"></i>
-                        <span>QQ</span>
-                    </a>
-                    <a class="item" href="https://t.me/jystnet" target="_blank">
-                        <i class="neko-icon icon-telegram"></i>
-                        <span>Telegram</span>
-                    </a>
-                    <a class="item" href="mailto:admin@luozhinet.com" target="_blank">
-                        <i class="neko-icon icon-email"></i>
-                        <span>Email</span>
-                    </a>
-                    <a class="item" href="https://space.bilibili.com/1616080682" target="_blank">
-                        <i class="neko-icon icon-bilibili"></i>
-                        <span>Bilibili</span>
-                    </a>
-                    <a class="item" href="https://weibo.com/u/7647256486" target="_blank">
-                        <i class="neko-icon icon-weibo"></i>
-                        <span>Weibo</span>
-                    </a>
-                    <a class="item" href="https://music.163.com/#/user/home?id=2133134074" target="_blank">
-                        <i class="neko-icon icon-music"></i>
-                        <span>Music</span>
-                    </a>
-                    <a class="item" href="https://github.com/miloce" target="_blank">
-                        <i class="neko-icon icon-github"></i>
-                        <span>Github</span>
-                    </a>
+                    <div class="find-me animate-on-scroll">
+                        <a class="item" href="http://wpa.qq.com/msgrd?v=3&uin=2855595515&site=qq&menu=yes" target="_blank">
+                            <i class="neko-icon icon-qq"></i>
+                            <span>QQ</span>
+                        </a>
+                        <a class="item" href="https://t.me/jystnet" target="_blank">
+                            <i class="neko-icon icon-telegram"></i>
+                            <span>Telegram</span>
+                        </a>
+                        <a class="item" href="mailto:admin@luozhinet.com" target="_blank">
+                            <i class="neko-icon icon-email"></i>
+                            <span>Email</span>
+                        </a>
+                        <a class="item" href="https://space.bilibili.com/1616080682" target="_blank">
+                            <i class="neko-icon icon-bilibili"></i>
+                            <span>Bilibili</span>
+                        </a>
+                        <a class="item" href="https://weibo.com/u/7647256486" target="_blank">
+                            <i class="neko-icon icon-weibo"></i>
+                            <span>Weibo</span>
+                        </a>
+                        <a class="item" href="https://music.163.com/#/user/home?id=2133134074" target="_blank">
+                            <i class="neko-icon icon-music"></i>
+                            <span>Music</span>
+                        </a>
+                        <a class="item" href="https://github.com/miloce" target="_blank">
+                            <i class="neko-icon icon-github"></i>
+                            <span>Github</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="ch clear">
-            <div class="container">
-                <div class="enter-list animate-on-scroll">
-                    <a class="item" href="https://blog.luozhinet.com/">
-                        <div class="text">部落格</div>
-                        <div class="bg">
-                            <div class="square">
-                                <svg width="100" height="100" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="100" height="100" rx="10" fill="url(#paint0_linear)"/>
-                                    <defs>
-                                    <linearGradient id="paint0_linear" x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
-                                    <stop stop-color="white"/>
-                                    <stop offset="1" stop-color="white" stop-opacity="0"/>
-                                    </linearGradient>
-                                    </defs>
-                                </svg>
+            <div class="ch clear">
+                <div class="container">
+                    <div class="enter-list animate-on-scroll">
+                        <a class="item" href="https://blog.luozhinet.com/">
+                            <div class="text">部落格</div>
+                            <div class="bg">
+                                <div class="square">
+                                    <svg width="100" height="100" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="100" height="100" rx="10" fill="url(#paint0_linear)"/>
+                                        <defs>
+                                        <linearGradient id="paint0_linear" x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="white"/>
+                                        <stop offset="1" stop-color="white" stop-opacity="0"/>
+                                        </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a class="item" href="https://lab.luozhinet.com/">
-                        <div class="text">实验室</div>
-                        <div class="bg">
-                            <div class="triangle">
-                                <svg width="116" height="103" preserveAspectRatio="xMidYMid meet" viewBox="0 0 116 103" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M49.3397 5.00001C53.1887 -1.66666 62.8113 -1.66667 66.6603 5L114.292 87.5C118.141 94.1667 113.329 102.5 105.631 102.5H10.3686C2.67061 102.5 -2.14065 94.1667 1.70835 87.5L49.3397 5.00001Z" fill="url(#paint0_linear)"/>
-									<defs>
-									<linearGradient id="paint0_linear" x1="58" y1="0.5" x2="58" y2="104" gradientUnits="userSpaceOnUse">
-									<stop stop-color="white"/>
-									<stop offset="1" stop-color="white" stop-opacity="0"/>
-									<stop offset="1" stop-color="white" stop-opacity="0"/>
-									</linearGradient>
-									</defs>
-									</svg>
+                        </a>
+                        <a class="item" href="https://lab.luozhinet.com/">
+                            <div class="text">实验室</div>
+                            <div class="bg">
+                                <div class="triangle">
+                                    <svg width="116" height="103" preserveAspectRatio="xMidYMid meet" viewBox="0 0 116 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M49.3397 5.00001C53.1887 -1.66666 62.8113 -1.66667 66.6603 5L114.292 87.5C118.141 94.1667 113.329 102.5 105.631 102.5H10.3686C2.67061 102.5 -2.14065 94.1667 1.70835 87.5L49.3397 5.00001Z" fill="url(#paint0_linear)"/>
+										<defs>
+										<linearGradient id="paint0_linear" x1="58" y1="0.5" x2="58" y2="104" gradientUnits="userSpaceOnUse">
+										<stop stop-color="white"/>
+										<stop offset="1" stop-color="white" stop-opacity="0"/>
+										<stop offset="1" stop-color="white" stop-opacity="0"/>
+										</linearGradient>
+										</defs>
+										</svg>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a class="item" href="javascript:nav('friends')">
-                        <div class="text">朋友们</div>
-                        <div class="bg">
-                            <div class="rounded">
-                                <svg width="100" height="100" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<circle cx="50" cy="50" r="50" fill="url(#paint0_linear)"/>
-									<defs>
-									<linearGradient id="paint0_linear" x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
-									<stop stop-color="white"/>
-									<stop offset="1" stop-color="white" stop-opacity="0"/>
-									</linearGradient>
-									</defs>
-									</svg>
+                        </a>
+                        <a class="item" href="javascript:nav('friends')">
+                            <div class="text">朋友们</div>
+                            <div class="bg">
+                                <div class="rounded">
+                                    <svg width="100" height="100" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<circle cx="50" cy="50" r="50" fill="url(#paint0_linear)"/>
+										<defs>
+										<linearGradient id="paint0_linear" x1="50" y1="0" x2="50" y2="100" gradientUnits="userSpaceOnUse">
+										<stop stop-color="white"/>
+										<stop offset="1" stop-color="white" stop-opacity="0"/>
+										</linearGradient>
+										</defs>
+										</svg>
 
                             </div>
                         </div>
@@ -232,7 +220,7 @@
     </div>
     
     <div class="footer ch">
-        <div class="container animate-on-scroll">
+        <div class="container">
             <h3>我们徜徉在璀璨夺目的星辰之下，乘风破浪驰骋在这比特之海</h3>
             <p class="c"><a href="mailto:admin@luozhinet.com">Say hello to me @</a></p>
             <p><a href="https://luozhinet.com/">寻找着比特之海的尽头，那是新世界的起点</a></p>
@@ -250,21 +238,6 @@
     
     <script src="source/zepto.min.js"></script>
     <script src="source/page.js"></script>
-    <script>
-    function checkScroll() {
-        const animateElements = document.querySelectorAll('.animate-on-scroll');
-        const windowHeight = window.innerHeight;
-        animateElements.forEach(function(element, idx) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top < windowHeight - 40) {
-                element.classList.add('visible');
-                element.style.transitionDelay = (idx * 0.12) + 's';
-            }
-        });
-    }
-    window.addEventListener('scroll', checkScroll);
-    window.addEventListener('DOMContentLoaded', checkScroll);
-    </script>
 </body>
 
 </html>

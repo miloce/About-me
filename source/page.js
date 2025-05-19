@@ -261,8 +261,51 @@ function nav (page){
     case 'friends':
       $(".gate-friends").toggle();
       break;
-  
     default:
       break;
   }
 }
+
+// 首页 Slogan 打字动画
+function animateSlogan() {
+    const slogans = [
+        "期待在比特之海与你相遇",
+        "We are all Stardust",
+        "每个人都是平凡的奇迹",
+        "想和我一起启程吗？",
+        "寻找那传说中的比特之海",
+        "There have an interesting soul"
+    ];
+    const sloganElement = document.getElementById('slogan');
+    if (!sloganElement) return;
+    const randomSlogan = slogans[Math.floor(Math.random() * slogans.length)];
+    sloganElement.textContent = '';
+    sloganElement.style.minHeight = '40px';
+    let charIndex = 0;
+    const typingSpeed = 100;
+    function typeSlogan() {
+        if (charIndex < randomSlogan.length) {
+            sloganElement.textContent += randomSlogan.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeSlogan, typingSpeed);
+        } else {
+            sloganElement.classList.add('typed');
+        }
+    }
+    typeSlogan();
+}
+window.addEventListener('DOMContentLoaded', animateSlogan);
+
+function checkScroll() {
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    const windowHeight = window.innerHeight;
+    animateElements.forEach(function(element, idx) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < windowHeight - 40) {
+            element.classList.add('visible');
+            element.style.transitionDelay = (idx * 0.12) + 's';
+        }
+    });
+}
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('DOMContentLoaded', checkScroll);
