@@ -10,9 +10,23 @@
     <meta name="description" content="洛栀的个人网站，期待在比特之海与你相遇！">
     <meta name="keywords" content="洛栀,Luozhi,若辰,梓逸,Milo">
     <link rel="apple-touch-icon-precomposed" href="http://q1.qlogo.cn/g?b=qq&amp;nk=2855595515&amp;s=100">
-
+     <!-- 加载现代化样式 -->
     <link rel="stylesheet" type="text/css" href="source/h.css">
+     <!-- 加载图标字体 -->
     <link rel="stylesheet" type="text/css" href="source/font/nekotora.css">
+    <!-- animate-on-scroll 动画CSS -->
+    <style>
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        transition: opacity 0.8s cubic-bezier(.19,1,.22,1), transform 0.8s cubic-bezier(.19,1,.22,1);
+        will-change: opacity, transform;
+    }
+    .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    </style>
 </head>
 
 <body>
@@ -89,13 +103,13 @@
                         <i class="neko-icon icon-bilibili"></i>
                         <span>Bilibili</span>
                     </a>
-                    <a class="item" href="https://x.com/weixinyunwang" target="_blank">
-                        <i class="neko-icon icon-twitter"></i>
-                        <span>Twitter</span>
+                    <a class="item" href="https://weibo.com/u/7647256486" target="_blank">
+                        <i class="neko-icon icon-weibo"></i>
+                        <span>Weibo</span>
                     </a>
                     <a class="item" href="https://music.163.com/#/user/home?id=2133134074" target="_blank">
                         <i class="neko-icon icon-music"></i>
-                        <span>网易云音乐</span>
+                        <span>Music</span>
                     </a>
                     <a class="item" href="https://github.com/miloce" target="_blank">
                         <i class="neko-icon icon-github"></i>
@@ -237,137 +251,19 @@
     <script src="source/zepto.min.js"></script>
     <script src="source/page.js"></script>
     <script>
-        // 设置版权年份
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // 滚动动画效果
-        document.addEventListener('DOMContentLoaded', function() {
-            // 添加打字效果
-            animateSlogan();
-            
-            // 滚动动画
-            const animateElements = document.querySelectorAll('.animate-on-scroll');
-            
-            // 为每个元素设置不同的延迟
-            animateElements.forEach(function(element, idx) {
+    function checkScroll() {
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        const windowHeight = window.innerHeight;
+        animateElements.forEach(function(element, idx) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < windowHeight - 40) {
+                element.classList.add('visible');
                 element.style.transitionDelay = (idx * 0.12) + 's';
-            });
-            
-            function checkScroll() {
-                const windowHeight = window.innerHeight;
-                const windowTopPosition = window.scrollY;
-                const windowBottomPosition = windowTopPosition + windowHeight;
-                
-                animateElements.forEach(function(element) {
-                    const elementHeight = element.offsetHeight;
-                    const elementTopPosition = element.offsetTop;
-                    const elementBottomPosition = elementTopPosition + elementHeight;
-                    
-                    // 检查元素是否在视窗内
-                    if (
-                        (elementBottomPosition >= windowTopPosition) && 
-                        (elementTopPosition <= windowBottomPosition)
-                    ) {
-                        element.classList.add('visible');
-                    }
-                });
-            }
-            
-            // 初始检查
-            checkScroll();
-            
-            // 滚动时检查
-            window.addEventListener('scroll', checkScroll);
-            
-            // 添加滚动进度条
-            createScrollProgressBar();
-            
-            // Slogan 动画触发
-            var slogan = document.getElementById('slogan');
-            if (slogan) {
-                slogan.classList.remove('slogan-animate');
-                void slogan.offsetWidth; // 强制重绘
-                slogan.classList.add('slogan-animate');
             }
         });
-        
-        // 创建滚动进度条
-        function createScrollProgressBar() {
-            const progressBar = document.createElement('div');
-            progressBar.className = 'scroll-progress';
-            progressBar.style.position = 'fixed';
-            progressBar.style.top = '0';
-            progressBar.style.left = '0';
-            progressBar.style.width = '0';
-            progressBar.style.height = '3px';
-            progressBar.style.background = 'linear-gradient(to right, #5D8BF4, #AB4ADB)';
-            progressBar.style.zIndex = '9999';
-            progressBar.style.transition = 'width 0.1s';
-            document.body.appendChild(progressBar);
-            
-            // 更新进度条
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollPercentage = (scrollTop / scrollHeight) * 100;
-                progressBar.style.width = scrollPercentage + '%';
-            });
-        }
-        
-        // 随机标语动画
-        function animateSlogan() {
-            const slogans = [
-                "期待在比特之海与你相遇",
-                "We are all Stardust",
-                "每个人都是平凡的奇迹",
-                "想和我一起启程吗？",
-                "寻找那传说中的比特之海",
-                "There have an interesting soul"
-            ];
-            
-            const sloganElement = document.getElementById('slogan');
-            if (!sloganElement) return;
-            
-            // 随机获取一个标语
-            const randomSlogan = slogans[Math.floor(Math.random() * slogans.length)];
-            
-            // 先清空标语
-            sloganElement.textContent = '';
-            sloganElement.style.minHeight = '40px';
-            
-            // 初始化打字动画
-            let charIndex = 0;
-            const typingSpeed = 100; // ms
-            
-            function typeSlogan() {
-                if (charIndex < randomSlogan.length) {
-                    sloganElement.textContent += randomSlogan.charAt(charIndex);
-                    charIndex++;
-                    setTimeout(typeSlogan, typingSpeed);
-                } else {
-                    // 打字动画完成后，添加闪烁的光标效果
-                    sloganElement.classList.add('typed');
-                    
-                    // 添加光标闪烁效果
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        #slogan.typed::after {
-                            content: "|";
-                            animation: blink 1s infinite;
-                            margin-left: 2px;
-                        }
-                        @keyframes blink {
-                            0%, 100% { opacity: 1; }
-                            50% { opacity: 0; }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                }
-            }
-            
-            // 开始动画
-            typeSlogan();
-        }
+    }
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('DOMContentLoaded', checkScroll);
     </script>
 </body>
 
