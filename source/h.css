@@ -915,6 +915,17 @@ ul.skill li .progress div {
     margin-bottom: 15px;
     max-width: 700px;
 }
+.about .introduct sup {
+    font-family: 'Pacifico', 'Caveat', 'Noto Sans', 'Arial', cursive, sans-serif;
+    font-size: 0.7em;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #AB4ADB;
+    vertical-align: super;
+    padding-left: 1px;
+    padding-right: 0;
+}
 @keyframes avatar-pulse {
     0% { box-shadow: 0 4px 20px rgba(93, 139, 244, 0.2); }
     100% { box-shadow: 0 4px 30px rgba(93, 139, 244, 0.5); }
@@ -922,7 +933,21 @@ ul.skill li .progress div {
 /* 居中 footer 内容 */
 .footer .container { text-align: center; }
 /* 页脚链接蓝色 */
-.footer .container p.c a { color: #007bff; }
+
+.footer .c a {
+    color: #5D8BF4;
+    font-weight: bold;
+    background: linear-gradient(90deg, #5D8BF4, #AB4ADB 60%, #00ffea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: color 0.2s;
+}
+.footer .c a:hover {
+    color: #007bff;
+    -webkit-text-fill-color: #007bff;
+
+}
 
 /* 头像漂浮动画，兼容About-me现代风格 */
 .about .introduct img.avatar {
@@ -1063,4 +1088,13 @@ ul.skill li .progress div {
     .footer-meta img {
         margin: 0 2px;
     }
+}
+
+.footer-miloce {
+    font-size: 10px;
+    font-family: 'Noto Sans', 'Arial', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    vertical-align: baseline;
+    opacity: 0.85;
 }
